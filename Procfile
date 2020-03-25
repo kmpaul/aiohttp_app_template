@@ -1,1 +1,1 @@
-web: python -m app --port $PORT --mongodb $MONGODB_URI
+web: python -m app --port $PORT --mongouri $MONGODB_URI
