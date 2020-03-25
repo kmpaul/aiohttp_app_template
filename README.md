@@ -69,6 +69,8 @@ Options:
   --host TEXT        Server IP address
   --port INTEGER     Server port number
   --logging INTEGER  Logging output level
+  --mongouri TEXT    MongoDB URI
+  --mongodb TEXT     MongoDB Database Name
   --config PATH      User-defined configuration file location
   --help             Show this message and exit.
 ```
