@@ -1,7 +1,0 @@
-logging: INFO
-server:
-  host: null
-  port: null
-database:
-  uri: null
-  name: db
