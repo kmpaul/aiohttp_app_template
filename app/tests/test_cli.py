@@ -1,5 +1,3 @@
-import logging
-
 from app.cli import DEFAULT_CONFIG, cli
 
 
@@ -24,7 +22,7 @@ def test_cli_port():
 
 def test_cli_logging():
     params = DEFAULT_CONFIG.copy()
-    params['logging'] = logging.WARNING
+    params['logging'] = 'WARNING'
     ctx = cli.make_context(
         cli.name, args=['--logging', str(params['logging'])], auto_envvar_prefix='APP'
     )

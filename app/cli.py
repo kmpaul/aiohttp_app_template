@@ -10,14 +10,14 @@ from .database import connect_db, disconnect_db
 from .middlewares import setup_middlewares
 from .routes import setup_routes
 
+DEFAULT_CONFIG_PATHS = ['config.ini']
 DEFAULT_CONFIG = {
     'host': None,
     'port': None,
-    'logging': logging.INFO,
+    'logging': 'INFO',
     'mongouri': None,
     'mongodb': 'db',
 }
-DEFAULT_CONFIG_PATHS = ['config.ini']
 
 
 async def init_app(config=DEFAULT_CONFIG):
@@ -63,6 +63,6 @@ def config_callback(ctx, config_param, config_file):
     callback=config_callback,
 )
 def cli(**config):
-    logging.basicConfig(level=config['logging'])
+    logging.basicConfig(level=getattr(logging, config['logging']))
     app = init_app(config=config)
     web.run_app(app, host=config['host'], port=config['port'])
