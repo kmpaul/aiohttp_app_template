@@ -1,4 +1,4 @@
-from app.cli import DEFAULT_CONFIG, cli
+from myapp.cli import DEFAULT_CONFIG, cli
 
 
 def test_cli_defaults():
