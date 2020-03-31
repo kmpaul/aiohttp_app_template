@@ -1,6 +1,7 @@
 [![CircleCI](https://img.shields.io/circleci/build/github/ncar-xdev/aiohttp_app_template?label=circleci)](https://circleci.com/gh/ncar-xdev/aiohttp_app_template)
 [![Coverage](https://img.shields.io/codecov/c/gh/ncar-xdev/aiohttp_app_template)](https://codecov.io/gh/ncar-xdev/aiohttp_app_template)
 [![License](https://img.shields.io/github/license/ncar-xdev/aiohttp_app_template)](https://www.apache.org/licenses/LICENSE-2.0)
+[![PyPI](https://img.shields.io/pypi/v/abcdefghijklmnop?label=pypi)](https://pypi.org/project/abcdefghijklmnop)
 [![Heroku](https://img.shields.io/website?down_color=red&down_message=offline&label=Heroku&up_color=green&up_message=online&url=https%3A%2F%2Fmyapp.herokuapp.com%2F)](https://myapp.herokuapp.com)
 
 AIOHTTP Application Template
