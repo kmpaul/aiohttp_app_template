@@ -12,7 +12,7 @@ else:
     long_description = ''
 
 setup(
-    name='MyApp',
+    name='myapp',
     packages=find_packages(),
     install_requires=install_requires,
     author='Kevin Paul',
