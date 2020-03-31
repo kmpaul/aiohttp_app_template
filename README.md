@@ -1,3 +1,7 @@
+[![CircleCI](https://img.shields.io/circleci/build/github/ncar-xdev/aiohttp_app_template?label=circleci)](https://circleci.com/gh/ncar-xdev/aiohttp_app_template)
+[![Coverage](https://img.shields.io/codecov/c/gh/ncar-xdev/aiohttp_app_template)](https://codecov.io/gh/ncar-xdev/aiohttp_app_template)
+[![License](https://img.shields.io/github/license/ncar-xdev/aiohttp_app_template)](https://www.apache.org/licenses/LICENSE-2.0)
+
 AIOHTTP Application Template
 ============================
 
