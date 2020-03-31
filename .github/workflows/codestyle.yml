@@ -9,7 +9,7 @@ on:
 jobs:
 
   lint-black:
-    name: black-formatter
+    name: black
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -24,6 +24,7 @@ jobs:
       - name: Black Code Formatter
         run: |
           black --check --line-length 100 --skip-string-normalization .
+
   lint-flake8:
     name: flake8
     runs-on: ubuntu-latest
@@ -40,6 +41,7 @@ jobs:
       - name: Flake8 check
         run: |
           flake8 .
+
   lint-isort:
     name: isort
     runs-on: ubuntu-latest
