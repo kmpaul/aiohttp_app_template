@@ -48,21 +48,36 @@ CircleCI
 This app also has continuous integration enabled with CircleCI.  This means that
 Heroku can be used to autodeploy when CI tests pass.
 
+Installation
+------------
+
+This application can be installed with `pip` or directly with `setup.py`:
+
+```bash
+$ python setup.py install
+```
+
+or
+
+```bash
+$ pip install .
+```
+
 Running Locally
 ---------------
 
 To run this application locally, you need simply run:
 
 ```bash
-$ python -m app
+$ python -m myapp
 ```
 
 However, this application uses `click` for its CLI, which means you can get the
 full help description with:
 
 ```bash
-$ python -m app --help
-Usage: app [OPTIONS]
+$ python -m myapp --help
+Usage: myapp [OPTIONS]
 
 Options:
   --version          Show the version and exit.
