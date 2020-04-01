@@ -124,7 +124,7 @@ full help description with:
     :target: https://codecov.io/gh/ncar-xdev/aiohttp_app_template
     :alt: Coverage
 
-.. |Docs| image::
+.. |Docs| image:: https://img.shields.io/website?down_color=red&down_message=offline&label=docs&up_color=green&up_message=online&url=https%3A%2F%2Fncar-xdev.github.io%2Faiohttp_app_template
     :target: https://ncar-xdev.github.io/aiohttp_app_template
     :alt:
 
