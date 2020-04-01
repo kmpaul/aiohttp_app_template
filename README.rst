@@ -12,15 +12,23 @@ How to use this template
 ------------------------
 
 You should just be able to create your own repository based on this template by just choosing this template
-during the new repository creation form on GitHub.  You will probably want to change the name of this application
-to something more suited to your needs.  By default, the name of the web application (and the PyPI package, and
-the name of the Python package you might import) is determined *solely* from the name of the main package
-directory.  Currently, it is ``myapp``, so all you would need to do is change the name of this directory.
+during the new repository creation form on GitHub, or by clicking the "Use this template" button on this template's
+GitHub main page.  (I highly recommend that you select the *"Include all branches"* radio button, which will give
+you an "ready-to-go" GitHub Pages branch (``gh-pages``) for your application's documentation.  If you don't do this,
+and you want to enable GitHub Pages for your new repository, you will have to manually add a ``.nojekyll`` file to
+the ``gh-pages`` branch.)
 
-When creating a new repository from this template, I highly recommend that you select the *"Include all branches"*
-radio button.  If you do this, you will automatically get a working Sphinx deployment of the application
-documentation on GitHub Pages.  If you do not do this, you may have to manually fix some settings for your
-GitHub Pages site to work properly (e.g., manually adding a ``.nojekyll`` file to the ``gh-pages`` branch).
+After creating a new repository based on this template, you will probably want to customize your version for
+your purposes.  Some things you should consider to customize this template for your application include:
+
+- Change the main Python package name to the name of your app by changing the name of the ``myapp`` directory
+- Update the ``Procfile`` to use this new package name
+- Update the ``setup.py`` file to meet your needs (i.e., short and long descriptions, etc.)
+- Update the ``README.rst`` file as you see fit
+- Change the LICENSE, if you so choose
+- Update the documentation in the ``docs/`` folder
+- Change the name of the conda environment in the ``.circleci/environment.yml`` file (entirely optional!)
+
 
 Some notes on the design
 ------------------------
