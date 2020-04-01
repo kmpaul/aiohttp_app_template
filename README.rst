@@ -1,4 +1,4 @@
-|CircleCI||Linting||Coverage||Docs||License||PyPI||Heroku|
+|CircleCI| |Linting| |Coverage| |Docs| |License| |PyPI| |Heroku|
 
 AIOHTTP Application Template
 ============================
