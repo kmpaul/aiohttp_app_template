@@ -8,12 +8,24 @@
 AIOHTTP Application Template
 ============================
 
-This is a simple template for an `aiohttp`-based web app.  It is designed to be easily deployable on Heroku,
-provide persistant storage with MongoDB, and has basic testing with `pytest` and continuous integration via
-CircleCI.
+This template repository is meant to serve as a starting point for anyone wanting to build an `aiohttp`-based
+web application and run that web application on Heroku (or a similar service).  It provides basic structure and
+setup for a web application using a MongoDB database with Python `motor`, and the base code is set up with
+`pytest` unit testing and continuous integration with CircleCI (and GitHub Actions).
 
-aiohttp
--------
+How to use this template
+------------------------
+
+You should just be able to create your own repository based on this template by just choosing this template
+during the new repository creation form on GitHub.  You will probably want to change the name of this application
+to something more suited to your needs.  By default, the name of the web application (and the PyPI package, and
+the name of the Python package you might import) is determined *solely* from the name of the main package
+directory.  Currently, it is `myapp`, so all you would need to do is change the name of this directory.
+
+A note on the dependencies
+--------------------------
+
+### aiohttp
 
 This application is build using `aiohttp`, an asynchronous web server/client
 framework for Python 3.5+.  If you are unfamiliar with asynchronous programming in
@@ -27,8 +39,7 @@ The `aiohttp` package provides a web server and client that uses this fundamenta
 
 - https://docs.aiohttp.org/en/v3.0.1/tutorial.html#aiohttp-tutorial
 
-motor
------
+### motor
 
 This app is designed to work with MongoDB for persistent data storage.  MongoDB
 provides a cloud-based DBaaS which has a free "sandbox" level (512 MB).
@@ -41,16 +52,14 @@ for `motor` with `asyncio` can be found here:
 
 - https://motor.readthedocs.io/en/stable/tutorial-asyncio.html
 
-Heroku
-------
+### Heroku
 
 This app is also designed to run on Heroku.  It is not large or demanding, so we
 do not need to pay for anything, yet.  The launch command that is needed for the
 app to run on Heroku is stored in the `Procfile` file, and the version of Python
 needed to run is specified in the `runtime.txt` file.
 
-CircleCI
---------
+### CircleCI
 
 This app also has continuous integration enabled with CircleCI.  This means that
 Heroku can be used to autodeploy when CI tests pass.
