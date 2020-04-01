@@ -1,6 +1,6 @@
 from motor.motor_asyncio import AsyncIOMotorDatabase
 
-from myapp.cli import DEFAULT_CONFIG, init_app
+from ..cli import DEFAULT_CONFIG, init_app
 
 
 async def test_database(aiohttp_client, mockdbserver, loop):

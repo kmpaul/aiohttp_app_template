@@ -10,6 +10,8 @@ from .database import connect_db, disconnect_db
 from .middlewares import setup_middlewares
 from .routes import setup_routes
 
+NAME = __package__
+
 DEFAULT_CONFIG_PATHS = ['config.ini']
 DEFAULT_CONFIG = {
     'host': None,
@@ -23,7 +25,7 @@ DEFAULT_CONFIG = {
 async def init_app(config=DEFAULT_CONFIG):
     app = web.Application()
     app['config'] = config
-    aiohttp_jinja2.setup(app, loader=jinja2.PackageLoader(__package__, 'templates'))
+    aiohttp_jinja2.setup(app, loader=jinja2.PackageLoader(NAME, 'templates'))
 
     app.on_startup.append(connect_db)
     app.on_cleanup.append(disconnect_db)
@@ -38,14 +40,14 @@ def config_callback(ctx, config_param, config_file):
     config_paths = DEFAULT_CONFIG_PATHS + ([config_file] if config_file else [])
     cfgparser = ConfigParser()
     cfgparser.read(config_paths)
-    config = dict(cfgparser[__package__]) if __package__ in cfgparser else dict()
+    config = dict(cfgparser[NAME]) if NAME in cfgparser else dict()
     for param in ctx.command.params:
         if param.name in config:
             param.default = config[param.name]
 
 
 @click.command()
-@click.version_option(prog_name='App', version='0.0.0')
+@click.version_option(prog_name=NAME, version='0.0.0')
 @click.option('--host', default=DEFAULT_CONFIG['host'], type=str, help='Server IP address')
 @click.option('--port', default=DEFAULT_CONFIG['port'], type=int, help='Server port number')
 @click.option('--logging', default=DEFAULT_CONFIG['logging'], help='Logging output level')

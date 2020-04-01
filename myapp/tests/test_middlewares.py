@@ -1,7 +1,7 @@
 from aiohttp import web
 from bs4 import BeautifulSoup
 
-from myapp.cli import init_app
+from ..cli import init_app
 
 
 async def test_404(aiohttp_client, loop):

@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 
-from myapp.cli import init_app
+from ..cli import init_app
 
 
 async def test_index(aiohttp_client, loop):

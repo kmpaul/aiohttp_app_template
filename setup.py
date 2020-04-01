@@ -2,6 +2,8 @@ from os.path import exists
 
 from setuptools import find_packages, setup
 
+NAME = find_packages(exclude=['*.tests'])[0]
+
 with open('requirements.txt') as f:
     install_requires = f.read().strip().split('\n')
 
@@ -12,8 +14,8 @@ else:
     long_description = ''
 
 setup(
-    name='myapp',
-    packages=find_packages(),
+    name=NAME,
+    packages=[NAME],
     install_requires=install_requires,
     author='Kevin Paul',
     author_email='kpaul@ucar.edu',
