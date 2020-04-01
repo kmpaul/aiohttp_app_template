@@ -32,8 +32,6 @@ jobs:
         run: |
           cd docs
           make html
-          touch build/html/.nojekyll
-          ls build/html/
 
       - name: Install SSH Client
         uses: webfactory/ssh-agent@v0.2.0
