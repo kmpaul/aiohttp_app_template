@@ -20,7 +20,7 @@ directory.  Currently, it is ``myapp``, so all you would need to do is change th
 When creating a new repository from this template, I highly recommend *include all branches* from the template
 repository in your new branch.  If you do this, you will automatically get a working Sphinx deployment of the
 application documentation on GitHub Pages.  If you do not do this, you may have to manually fix some settings
-for your GitHub Pages site to work properly (e.g., manually adding a `.nojekyll` file to the `gh-pages` branch).
+for your GitHub Pages site to work properly (e.g., manually adding a ``.nojekyll`` file to the ``gh-pages`` branch).
 
 Some notes on the design
 ------------------------
