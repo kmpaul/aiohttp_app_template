@@ -5,6 +5,10 @@ workflows:
   default:
     jobs:
       - tests
+          filters:
+            branches:
+              ignore:
+                - gh-pages
 
 jobs:
   tests:
