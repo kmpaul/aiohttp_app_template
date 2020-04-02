@@ -2,6 +2,7 @@
 |GitHub|
 |Coverage|
 |License|
+
 .. |PyPI|
 
 AIOHTTP Application Template
