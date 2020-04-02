@@ -1,4 +1,8 @@
-|CircleCI| |Linting| |Coverage| |Docs| |License| |PyPI| |Heroku|
+|CircleCI|
+|GitHub|
+|Coverage|
+|License|
+.. |PyPI|
 
 AIOHTTP Application Template
 ============================
@@ -124,31 +128,22 @@ full help description with:
      --help             Show this message and exit.
 
 
-
-.. |CircleCI| image:: https://img.shields.io/circleci/build/github/ncar-xdev/aiohttp_app_template?label=tests
+.. |CircleCI| image:: https://badgen.net/circleci/github/ncar-xdev/aiohttp_app_template/master
     :target: https://circleci.com/gh/ncar-xdev/aiohttp_app_template
     :alt: Tests
 
-.. |Linting| image:: https://img.shields.io/github/workflow/status/ncar-xdev/aiohttp_app_template/code-style?label=linting
-    :target: https://github.com/ncar-xdev/aiohttp_app_template/actions?query=workflow%3Acode-style
-    :alt: Linting
+.. |GitHub| image:: https://badgen.net/github/checks/ncar-xdev/aiohttp_app_template/master
+    :target: https://github.com/ncar-xdev/aiohttp_app_template/actions
+    :alt: GitHub
 
-.. |Coverage| image:: https://img.shields.io/codecov/c/gh/ncar-xdev/aiohttp_app_template
+.. |Coverage| image:: https://badgen.net/codecov/c/github/ncar-xdev/aiohttp_app_template
     :target: https://codecov.io/gh/ncar-xdev/aiohttp_app_template
     :alt: Coverage
 
-.. |Docs| image:: https://img.shields.io/website?down_color=red&down_message=offline&label=docs&up_color=green&up_message=online&url=https%3A%2F%2Fncar-xdev.github.io%2Faiohttp_app_template
-    :target: https://ncar-xdev.github.io/aiohttp_app_template
-    :alt:
-
-.. |License| image:: https://img.shields.io/github/license/ncar-xdev/aiohttp_app_template
+.. |License| image:: https://badgen.net/github/license/ncar-xdev/aiohttp_app_template
     :target: https://www.apache.org/licenses/LICENSE-2.0
     :alt: License
 
-.. |PyPI| image:: https://img.shields.io/pypi/v/abcdefghijklmnop?label=pypi
-    :target: https://pypi.org/project/abcdefghijklmnop
+.. |PyPI| image:: https://badgen.net/pypi/v/aiohttp_app_template?label=pypi
+    :target: https://pypi.org/project/aiohttp_app_template
     :alt: PyPI
-
-.. |Heroku| image:: https://img.shields.io/website?down_color=red&down_message=offline&label=heroku&up_color=green&up_message=online&url=https%3A%2F%2Fmyapp.herokuapp.com%2F
-    :target: https://myapp.herokuapp.com
-    :alt: Heroku
