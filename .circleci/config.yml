@@ -4,11 +4,7 @@ workflows:
   version: 2
   default:
     jobs:
-      - tests:
-          filters:
-            branches:
-              ignore:
-                - gh-pages
+      - tests
 
 jobs:
   tests:
