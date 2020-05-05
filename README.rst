@@ -53,20 +53,14 @@ The ``aiohttp`` package provides a web server and client that uses this fundamen
 
 - https://docs.aiohttp.org/en/v3.0.1/tutorial.html#aiohttp-tutorial
 
-
-motor
-~~~~~
-
-This app is designed to work with MongoDB for persistent data storage.  MongoDB
-provides a cloud-based DBaaS which has a free "sandbox" level (512 MB).
-The app does not need much storage, so we use this service for free, but we may
-need to upgrade to a paid service in the future, or switch to a different DB
-solution.
-
-The recommended ``asyncio``-compatible driver for MongoDB is ``motor``.  The tutorial
-for ``motor`` with ``asyncio`` can be found here:
-
-- https://motor.readthedocs.io/en/stable/tutorial-asyncio.html
+There are many alternatives to ``aiohttp``, including the more "sophisticated" Django
+and Flask frameworks, but I chose ``aiohttp`` here because this "app" is designed to
+be very simple.  If you were to grow this app into something that needed much more
+functionality, was more widely used, and needed greater security, I would definitely
+go to Django or Flask and scale your app behind a reverse proxy server like Nginx.
+However, for these purposes (i.e., think "small, private GitHub App"), this should
+work quite well.  And this serves as an introduction to the concepts that you would
+then expand upon if you moved to Django or Flask in the future.
 
 
 Heroku
@@ -75,7 +69,39 @@ Heroku
 This app is also designed to run on Heroku.  It is not large or demanding, so we
 do not need to pay for anything, yet.  The launch command that is needed for the
 app to run on Heroku is stored in the ``Procfile`` file, and the version of Python
-needed to run is specified in the ``runtime.txt`` file.
+needed to run is specified in the ``runtime.txt`` file.  That is all you need to
+set this app up to run on Heroku.  This is enough to tell Heroku to "build" your
+app with the Python build-pack.
+
+Heroku is not perfect.  As I already mentioned, this app is designed to be very
+light-weight; it is not meant for a heavily-used production service.  If you need
+to grow this app into something larger, then you might need to pay for additional
+capabilities on Heroku.  If that day comes, you may find that Heroku is too expensive.
+However, Heroku's free Platform-as-a-Service model is incredibly easy to use and
+configure, and for something small like this, it is perfect.
+
+
+motor
+~~~~~
+
+While Heroku provides a free-level MongoDB service as a "plug-in" for your Heroku
+app, MongoDB.com also provides a free-tier database of the same size.  Using
+MongoDB.com means that you only need to configure the app and your databose on
+MongoDB.com directly (with the dashboard).  However, using Heroku's plugin means
+you need to configure the app, the MongoDB database itself, and the plugin via
+the Heroku dashboard.  I find that needlessly complicated for something this
+simple.  So, I just designed this app to use MongoDB.com directly.  Heroku need
+know nothing about it.
+
+MongoDB.com provides a cloud-based DBaaS which has a free "sandbox" level (512 MB).
+The app does not need much storage, so we use this service for free, but we may
+need to upgrade to a paid service in the future, or switch to a different DB
+solution.
+
+The recommended ``asyncio``-compatible driver for MongoDB is ``motor``.  The tutorial
+for ``motor`` with ``asyncio`` can be found here:
+
+- https://motor.readthedocs.io/en/stable/tutorial-asyncio.html
 
 
 CircleCI
