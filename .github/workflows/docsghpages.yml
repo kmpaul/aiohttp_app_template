@@ -39,10 +39,11 @@ jobs:
           ssh-private-key: ${{ secrets.DEPLOY_KEY }}
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@releases/v3-test
+        uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           BASE_BRANCH: master
           BRANCH: gh-pages
           FOLDER: docs/build/html
           CLEAN: true
           SSH: true
+          COMMIT_MESSAGE: "[skip ci] Deploy docs to GitHub Pages"
