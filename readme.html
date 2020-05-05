@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>AIOHTTP Application Template &#8212; aiohttp_app_template  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to aiohttp_app_template’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p><a class="reference external" href="https://circleci.com/gh/ncar-xdev/aiohttp_app_template"><img alt="Tests" src="https://badgen.net/circleci/github/ncar-xdev/aiohttp_app_template/master" /></a>
+<a class="reference external" href="https://github.com/ncar-xdev/aiohttp_app_template/actions"><img alt="GitHub" src="https://badgen.net/github/checks/ncar-xdev/aiohttp_app_template/master" /></a>
+<a class="reference external" href="https://codecov.io/gh/ncar-xdev/aiohttp_app_template"><img alt="Coverage" src="https://badgen.net/codecov/c/github/ncar-xdev/aiohttp_app_template" /></a>
+<a class="reference external" href="https://www.apache.org/licenses/LICENSE-2.0"><img alt="License" src="https://badgen.net/github/license/ncar-xdev/aiohttp_app_template" /></a></p>
+<div class="section" id="aiohttp-application-template">
+<h1>AIOHTTP Application Template<a class="headerlink" href="#aiohttp-application-template" title="Permalink to this headline">¶</a></h1>
+<p>This template repository is meant to serve as a starting point for anyone wanting to build an <code class="docutils literal notranslate"><span class="pre">aiohttp</span></code>-based
+web application and run that web application on Heroku (or a similar service).  It provides basic structure and
+setup for a web application using a MongoDB database with Python <code class="docutils literal notranslate"><span class="pre">motor</span></code>, and the base code is set up with
+<code class="docutils literal notranslate"><span class="pre">pytest</span></code> unit testing and continuous integration with CircleCI (and GitHub Actions).</p>
+<div class="section" id="how-to-use-this-template">
+<h2>How to use this template<a class="headerlink" href="#how-to-use-this-template" title="Permalink to this headline">¶</a></h2>
+<p>You should just be able to create your own repository based on this template by just choosing this template
+during the new repository creation form on GitHub, or by clicking the “Use this template” button on this template’s
+GitHub main page.  (I highly recommend that you select the <em>“Include all branches”</em> radio button, which will give
+you an “ready-to-go” GitHub Pages branch (<code class="docutils literal notranslate"><span class="pre">gh-pages</span></code>) for your application’s documentation.  If you don’t do this,
+and you want to enable GitHub Pages for your new repository, you will have to manually add a <code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> file to
+the <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch.)</p>
+<p>After creating a new repository based on this template, you will probably want to customize your version for
+your purposes.  Some things you should consider to customize this template for your application include:</p>
+<ul class="simple">
+<li><p>Change the main Python package name to the name of your app by changing the name of the <code class="docutils literal notranslate"><span class="pre">myapp</span></code> directory</p></li>
+<li><p>Update the <code class="docutils literal notranslate"><span class="pre">Procfile</span></code> to use this new package name</p></li>
+<li><p>Update the <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file to meet your needs (i.e., short and long descriptions, etc.)</p></li>
+<li><p>Update the <code class="docutils literal notranslate"><span class="pre">README.rst</span></code> file as you see fit</p></li>
+<li><p>Change the LICENSE, if you so choose</p></li>
+<li><p>Update the documentation in the <code class="docutils literal notranslate"><span class="pre">docs/</span></code> folder</p></li>
+<li><p>Change the name of the conda environment in the <code class="docutils literal notranslate"><span class="pre">.circleci/environment.yml</span></code> file (entirely optional!)</p></li>
+</ul>
+</div>
+<div class="section" id="some-notes-on-the-design">
+<h2>Some notes on the design<a class="headerlink" href="#some-notes-on-the-design" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="aiohttp">
+<h3>aiohttp<a class="headerlink" href="#aiohttp" title="Permalink to this headline">¶</a></h3>
+<p>This application is build using <code class="docutils literal notranslate"><span class="pre">aiohttp</span></code>, an asynchronous web server/client
+framework for Python 3.5+.  If you are unfamiliar with asynchronous programming in
+Python (namely, Python 3.5+’s <code class="docutils literal notranslate"><span class="pre">asyncio</span></code>), then you should read up on it here:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/asyncio.html">https://docs.python.org/3/library/asyncio.html</a></p></li>
+<li><p><a class="reference external" href="https://realpython.com/async-io-python/">https://realpython.com/async-io-python/</a></p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">aiohttp</span></code> package provides a web server and client that uses this fundamental
+<code class="docutils literal notranslate"><span class="pre">asyncio</span></code> functionality.  To learn more about <code class="docutils literal notranslate"><span class="pre">aiohttp</span></code>, you can read up on it here:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.aiohttp.org/en/v3.0.1/tutorial.html#aiohttp-tutorial">https://docs.aiohttp.org/en/v3.0.1/tutorial.html#aiohttp-tutorial</a></p></li>
+</ul>
+<p>There are many alternatives to <code class="docutils literal notranslate"><span class="pre">aiohttp</span></code>, including the more “sophisticated” Django
+and Flask frameworks, but I chose <code class="docutils literal notranslate"><span class="pre">aiohttp</span></code> here because this “app” is designed to
+be very simple.  If you were to grow this app into something that needed much more
+functionality, was more widely used, and needed greater security, I would definitely
+go to Django or Flask and scale your app behind a reverse proxy server like Nginx.
+However, for these purposes (i.e., think “small, private GitHub App”), this should
+work quite well.  And this serves as an introduction to the concepts that you would
+then expand upon if you moved to Django or Flask in the future.</p>
+</div>
+<div class="section" id="heroku">
+<h3>Heroku<a class="headerlink" href="#heroku" title="Permalink to this headline">¶</a></h3>
+<p>This app is also designed to run on Heroku.  It is not large or demanding, so we
+do not need to pay for anything, yet.  The launch command that is needed for the
+app to run on Heroku is stored in the <code class="docutils literal notranslate"><span class="pre">Procfile</span></code> file, and the version of Python
+needed to run is specified in the <code class="docutils literal notranslate"><span class="pre">runtime.txt</span></code> file.  That is all you need to
+set this app up to run on Heroku.  This is enough to tell Heroku to “build” your
+app with the Python build-pack.</p>
+<p>Heroku is not perfect.  As I already mentioned, this app is designed to be very
+light-weight; it is not meant for a heavily-used production service.  If you need
+to grow this app into something larger, then you might need to pay for additional
+capabilities on Heroku.  If that day comes, you may find that Heroku is too expensive.
+However, Heroku’s free Platform-as-a-Service model is incredibly easy to use and
+configure, and for something small like this, it is perfect.</p>
+</div>
+<div class="section" id="motor">
+<h3>motor<a class="headerlink" href="#motor" title="Permalink to this headline">¶</a></h3>
+<p>While Heroku provides a free-level MongoDB service as a “plug-in” for your Heroku
+app, MongoDB.com also provides a free-tier database of the same size.  Using
+MongoDB.com means that you only need to configure the app and your databose on
+MongoDB.com directly (with the dashboard).  However, using Heroku’s plugin means
+you need to configure the app, the MongoDB database itself, and the plugin via
+the Heroku dashboard.  I find that needlessly complicated for something this
+simple.  So, I just designed this app to use MongoDB.com directly.  Heroku need
+know nothing about it.</p>
+<p>MongoDB.com provides a cloud-based DBaaS which has a free “sandbox” level (512 MB).
+The app does not need much storage, so we use this service for free, but we may
+need to upgrade to a paid service in the future, or switch to a different DB
+solution.</p>
+<p>The recommended <code class="docutils literal notranslate"><span class="pre">asyncio</span></code>-compatible driver for MongoDB is <code class="docutils literal notranslate"><span class="pre">motor</span></code>.  The tutorial
+for <code class="docutils literal notranslate"><span class="pre">motor</span></code> with <code class="docutils literal notranslate"><span class="pre">asyncio</span></code> can be found here:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://motor.readthedocs.io/en/stable/tutorial-asyncio.html">https://motor.readthedocs.io/en/stable/tutorial-asyncio.html</a></p></li>
+</ul>
+</div>
+<div class="section" id="circleci">
+<h3>CircleCI<a class="headerlink" href="#circleci" title="Permalink to this headline">¶</a></h3>
+<p>This app also has continuous integration enabled with CircleCI.  This means that
+Heroku can be used to autodeploy when CI tests pass.</p>
+</div>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>This application can be installed with <code class="docutils literal notranslate"><span class="pre">pip</span></code> or directly with <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python setup.py install
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install .
+</pre></div>
+</div>
+</div>
+<div class="section" id="running-locally">
+<h2>Running Locally<a class="headerlink" href="#running-locally" title="Permalink to this headline">¶</a></h2>
+<p>To run this application locally, you need simply run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python -m myapp
+</pre></div>
+</div>
+<p>However, this application uses <code class="docutils literal notranslate"><span class="pre">click</span></code> for its CLI, which means you can get the
+full help description with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python -m myapp --help
+Usage: myapp <span class="o">[</span>OPTIONS<span class="o">]</span>
+
+Options:
+  --version          Show the version and exit.
+  --host TEXT        Server IP address
+  --port INTEGER     Server port number
+  --logging INTEGER  Logging output level
+  --mongouri TEXT    MongoDB URI
+  --mongodb TEXT     MongoDB Database Name
+  --config PATH      User-defined configuration file location
+  --help             Show this message and exit.
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">aiohttp_app_template</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">AIOHTTP Application Template</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-use-this-template">How to use this template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#some-notes-on-the-design">Some notes on the design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-locally">Running Locally</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to aiohttp_app_template’s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, University Corporation for Atmospheric Research.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/readme.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
