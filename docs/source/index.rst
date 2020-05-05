@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to aiohttp_app_template's documentation!
-================================================
+Welcome to the aiohttp_app_template's documentation!
+====================================================
 
 .. toctree::
    :maxdepth: 2
